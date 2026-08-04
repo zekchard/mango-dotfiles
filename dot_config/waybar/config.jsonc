@@ -1,0 +1,38 @@
+// -*- mode: jsonc -*-
+{
+	"on-sigusr2":"reload",
+    "layer": "top", // Waybar at top layer
+    "position": "top", // Waybar position (top|bottom|left|right)
+    "height": 27, // Waybar height (to be removed for auto height)
+    // "width": 1280, // Waybar width
+    "spacing": -1, // Gaps between modules (4px)
+   "margin-left": 5,
+ "margin-right": 5,
+ "margin-top": 3,
+ "margin-bottom": 0,
+    "reload_style_on_change": true,
+    // Choose the order of the modules
+    "modules-left": [
+    	"mango/layout",
+        "mango/workspaces",
+        "mango/window"
+    ],
+    "modules-center":[
+    ],
+    "modules-right": [
+        "group/hardware",
+        "network",
+        "wireplumber",
+        "cpu",
+        "memory",
+        "temperature",
+        "battery",
+        "custom/notification",
+        "clock"
+    ],
+    //Modules configuration
+
+    "include": [
+		"~/.config/waybar/modules.json"
+	]
+}

@@ -1,0 +1,213 @@
+{
+  "$schema": "/etc/xdg/swaync/configSchema.json",
+  "positionX": "right",
+  "positionY": "top",
+  "layer": "overlay",
+  "ignore-gtk-theme": true,
+  "control-center-layer": "top",
+  "layer-shell": true,
+  "layer-shell-cover-screen": true,
+  "cssPriority": "user",
+  "control-center-exclusive-zone": false,
+  "control-center-margin-top": 5,
+  "control-center-margin-bottom": 5,
+  "control-center-margin-right": 5,
+  "control-center-margin-left": 5,
+  "notification-2fa-action": true,
+  "notification-inline-replies": false,
+  "notification-icon-size": 64,
+  "notification-body-image-height": 100,
+  "notification-body-image-width": 200,
+  "timeout": 10,
+  "timeout-low": 5,
+  "timeout-critical": 0,
+  "fit-to-screen": true,
+  "relative-timestamps": true,
+  "control-center-width": 450,
+  "control-center-height": -1,
+  "notification-window-width": 500,
+  "keyboard-shortcuts": true,
+  "image-visibility": "when-available",
+  "transition-time": 200,
+  "hide-on-clear": false,
+  "hide-on-action": true,
+  "text-empty": "No Notifications",
+  "script-fail-notify": true,
+  "notification-visibility": {
+    "example-name": {
+      "state": "muted",
+      "urgency": "Low",
+      "app-name": "Spotify"
+    }
+  },
+  "widgets": [
+    "menubar",
+    "mpris",
+    "inhibitors",
+    "notifications",/*
+    "volume",*/
+    "backlight",
+    "buttons-grid"
+  ],
+  "widget-config": {
+    "inhibitors": {
+      "text": "Inhibitors",
+      "button-text": "󰎟",
+      "clear-all-button": true
+    },
+    "notifications": {
+      "vexpand": true
+    },
+    "volume": {
+      "label": "󰕾",
+      "show-per-app": true,
+      "show-per-app-label": true,
+      "show-per-app-icon": false
+    },
+    "backlight": {
+      "label": "󰃠",
+      "device": "auto"
+    },
+    "title": {
+      "text": "Notifications",
+      "clear-all-button": true,
+      "button-text": "󰎟"
+    },
+    "dnd": {
+      "text": "Do Not Disturb"
+    },
+    "label": {
+      "max-lines": 5,
+      "text": "Label Text"
+    },
+    "mpris": {
+      "image-size": 56,
+      "image-radius": 5,
+      "show-album-art":"when-available",
+      "autohide":true,
+      "blacklist": [
+      	"kdeconnect*"
+      ]
+    },
+    "menubar": {
+      "menu#powermode-buttons": {
+        "label": "󰓅", 
+        "position": "right",
+        "actions": [ 
+          {
+            "label": "Performance",
+            "command": "sudo cpupower frequency-set -g performance ; swaync-client -cp ; swayosd-client --custom-message 'CPU in Performance governor'"
+          },
+          {
+            "label": "Ondemand",
+            "command": "sudo cpupower frequency-set -g ondemand && swaync-client -cp && swayosd-client --custom-message 'CPU in Ondemand governor'"
+          },
+          {
+            "label": "Conservative",
+            "command": "sudo cpupower frequency-set -g conservative && swaync-client -cp && swayosd-client --custom-message 'CPU in Conservative governor'"
+          },
+          {
+            "label": "Powersave",
+            "command": "sudo cpupower frequency-set -g powersave && swaync-client -cp && swayosd-client --custom-message 'CPU in Powersave governor'"
+          }
+        ]
+      },
+      "menu#power-buttons": {
+        "label": "", 
+        "position": "right",
+        "actions": [ 
+          {
+            "label": "   Reboot",
+            "command": "systemctl reboot"
+          },
+          {
+            "label": "   Lock",
+            "command": "swaylock"
+          },
+          {
+            "label": "   Logout",
+            "command": "loginctl terminate-session ${XDG_SESSION_ID-}"
+          },
+          {
+            "label": "   Shut down",
+            "command": "systemctl poweroff"
+          }
+        ]
+      },
+      "menu#screenshot-buttons": {
+        "label": "",
+        "position": "left",
+        "actions": [
+          {
+            "label": "   Entire screen",
+            "command": "swaync-client -cp ; sleep 1 ; ~/.config/mango/modules/scripts/screenshot.sh freeze"
+          },
+          {
+            "label": "󱣴   Select a region",
+            "command": "swaync-client -cp ; sleep 1 ; ~/.config/mango/modules/scripts/screenshot.sh freeze-region"
+          },
+          {
+            "label": "󱣴   Select a window",
+            "command": "swaync-client -cp ; sleep 1 ; ~/.config/mango/modules/scripts/screenshot.sh window"
+          },
+          {
+            "label": "󰉋   Open screenshot folder",
+            "command": "xdg-open ~/Pictures/Screenshots"
+          }
+        ]
+      },
+      "menu#screencast-buttons": {
+        "label": "",
+        "position": "left",
+        "actions": [
+          {
+            "label": "   Main screen",
+            "command": "swaync-client -cp && sleep 1 && /home/zek/scripts/screenrec.sh record"
+          },
+                    {
+            "label": "   Second screen",
+            "command": "swaync-client -cp && sleep 1 && /home/zek/scripts/screenrec.sh record2"
+          },
+          {
+            "label": "   Select a region",
+            "command": "swaync-client -cp && sleep 1 && /home/zek/scripts/screenrec.sh region"
+          },
+          {
+            "label": "   Stop",
+            "command": "swaync-client -cp && /home/zek/scripts/screenrec.sh end"
+          },
+          {
+            "label": "󰉋   Open screencast folder",
+            "command": "xdg-open ~/Videos/Screencasts"
+          }
+        ]
+      }
+    },
+    "buttons-grid": {
+      "actions": [
+        {
+          "label": "󰤨",
+          "type": "toggle",
+          "active": true,
+          "command": "sh -c '[[ $SWAYNC_TOGGLE_STATE == true ]] && nmcli radio wifi on || nmcli radio wifi off'",
+          "update-command": "sh -c '[[ $(nmcli radio wifi) == \"enabled\" ]] && echo true || echo false'"
+        },
+        {
+          "label": "󰂯",
+          "command": "blueberry"
+        },
+        {
+          "label": "󰂠",
+          "type": "toggle",
+          "active": true,
+          "command": "swaync-client --toggle-dnd",
+          "update-command": "swaync-client --get-dnd"
+        },
+        {
+          "label": "󰎟",
+          "command": "swaync-client --close-all"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,140 @@
+@import "colors.css";
+
+* {
+    font-family: Font Awesome, Symbols Nerd Font, AporeticSerifMono Nerd Font;
+    font-weight: 400;
+    font-size: 12px;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+window#waybar {
+    /*background: linear-gradient(to bottom,  rgba(33,33,33,0.8) 0%,rgba(33,33,33,0.5) 100%);*/
+    background: alpha(@background,.9);
+    color: @on_surface;
+    border: 2px solid alpha(@outline,.3);
+    border-radius: 5px;
+}
+
+.modules-left,
+.modules-center,
+.modules-right {
+    margin: 0px;
+    padding: 0 5 0 5;
+    border-radius: 5px;
+}
+
+.modules-center {
+    opacity: 1;
+}
+#clock,
+#custom-arch,
+#custom-srstatus,
+#custom-notification,
+#battery,
+#cpu,
+#memory,
+#disk,
+#temperature,
+#backlight,
+#network,
+#pulseaudio,
+#wireplumber,
+#custom-media,
+#mode,
+#idle_inhibitor,
+#scratchpad,
+#power-profiles-daemon,
+#tray,
+#language,
+#mpd {
+    padding: 0 6;
+    border-radius: 0px;
+}
+
+#cava{
+	font-family: AnonymicePro Nerd Font Propo Bold, AnonymicePro Nerd Font Propo, AnonymicePro Nerd Font
+}
+
+#custom-notification:hover
+#custom-arch:hover,
+#clock:hover,
+#battery:hover,
+#cpu:hover,
+#memory:hover,
+#disk:hover,
+#temperature:hover,
+#backlight:hover,
+#network:hover,
+#pulseaudio:hover,
+#wireplumber:hover,
+#custom-media:hover,
+#tray:hover,
+#mode:hover,
+#idle_inhibitor:hover,
+#scratchpad:hover,
+#power-profiles-daemon:hover,
+#language:hover,
+#mpd:hover {
+    background: alpha(@primary_container,.5);
+    border-radius: 0px;
+}
+
+#battery.warning,
+#temperature.warning{
+	color: alpha(@on_error_container,1);
+}
+#battery.critical,
+#temperature.critical{
+	color: alpha(@on_error_container,.8);
+    background: alpha(@error_container,.5);
+}
+
+
+#workspaces button {
+  background: transparent;
+  font-family:
+    Lexend,
+    feather;
+  font-weight: 500;
+  font-size: 12pt;
+    color: @on_surface;
+  border:none;
+  border-radius: 0px;
+  min-width: 8px;
+  padding: 0 5;
+}
+
+#workspaces button.visible {
+    border-bottom:2px solid alpha(@secondary,0.65);
+}
+
+#workspaces button.hosting-monitor {
+    color: @primary;
+}
+
+#workspaces button.active {
+background: linear-gradient(to top, alpha(@on_primary,.5) 0%,alpha(@primary,.2) 100%);
+    color: @primary; 
+    border-bottom:2px solid alpha(@primary,1);
+}
+
+#workspaces button:hover {
+    color: @secondary;
+}
+
+#workspaces button.special {
+    background: linear-gradient(to top, alpha(@on_tertiary,.5) 0%,alpha(@tertiary,.2) 100%);
+    color: @tertiary; 
+    border-bottom:2px solid alpha(@tertiary,1);
+}
+
+#workspaces button.urgent {
+    color: @tertiary;
+}
+
+#window {
+    padding: 0 12;
+}
+
+
+
+

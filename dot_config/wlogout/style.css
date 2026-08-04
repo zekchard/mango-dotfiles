@@ -1,0 +1,74 @@
+@import "colors.css";
+
+* {
+	background-image: none;
+	box-shadow: none;
+}
+
+window {
+    color: @on_surface;
+    background-color: alpha(@shadow,0.125);
+}
+
+/* BUTTONS */
+button {
+    background-repeat: no-repeat;
+    background-position: center 43%;
+    background-size: 25%;
+    background-color: alpha(@background,0.9);
+    animation: gradient_f 20s ease-in infinite;
+    transition: all 0.3s ease-in;
+    box-shadow: 0 0 6px 2px alpha(@shadow,0.6);
+    border: 2pt solid alpha(@outline,0.2);
+    border-radius: 5px;
+    margin: 3px;
+    min-width: 0px;
+    min-height: 0px;
+    padding: 1px;
+}
+
+/* TEXT LABELS (THIS WAS MISSING) */
+label {
+    color: @on_background;
+    font-size: 12pt;
+    font-weight: 700;
+    margin-top: 12px;
+}
+
+/* FOCUS */
+button:focus {
+	outline-style: none;
+}
+
+/* HOVER */
+button:hover {;
+    background-color: alpha(@primary_fixed_dim,0.9);
+    outline-style: none;	
+    border: 2pt solid alpha(@primary,0.9);
+    transition: all 0.3s cubic-bezier(0.85, 0, 0.15, 1);
+}
+
+
+#lock {
+    background-image: image(url("./icons/lock.svg"));
+}
+
+#logout {
+    background-image: image(url("./icons/logout.svg"));
+}
+
+#suspend {
+    background-image: image(url("./icons/sleep.svg"));
+}
+
+#hibernate {
+    background-image: image(url("./icons/hibernate.svg"));
+}
+
+#shutdown {
+    background-image: image(url("./icons/shutdown.svg"));
+}
+
+#reboot {
+    background-image: image(url("./icons/reboot.svg"));
+}
