@@ -13,7 +13,30 @@
     	"icon-size": 12,
     	"format": "{title}",
 	},
+	"ext/window": {
+		"align": 0,
+		"justify": "left",
+    	"max-length": 64,
+    	"icon": false,
+    	"icon-size": 12,
+    	"format": "{title}",
+	},
 	"mango/workspaces": {
+		"align": 0,
+		"justify": "left",
+    	"disable-scroll": false,
+    	"hide-empty": true,
+    	"all-outputs": true,
+    	"warp-on-scroll": true,
+    	"show-special": true,
+    	"format": "{name}{icon}",
+    	"format-icons": {
+        	"urgent": " ",
+        	"active": "",
+        	"default": ""
+    	}
+	},
+	"ext/workspaces": {
 		"align": 0,
 		"justify": "left",
     	"disable-scroll": false,
@@ -117,7 +140,7 @@
     	"justify": "right",
         "interval": 2,
         "format": " {usage}%",
-        "format-alt": " {usage}% | {avg_frequency} GHz",
+        "format-alt": " {usage}% | {avg_frequency:0.2f} GHz",
         "tooltip": true
     },
     "memory": {
@@ -125,8 +148,8 @@
     	"justify": "right",
 		"interval": 2,
         "format": " {percentage}%",
-        	"tooltip-format": "{used:0.1f}GiB used\n{swapUsed:0.1f}GiB swap used ({swapState})",
-        	"format-alt": " {used:0.1f}G/{total:0.1f}G",
+        	"tooltip-format": "{used:0.2f}GiB used\n{swapUsed:0.2f}GiB swap used ({swapState})",
+        	"format-alt": " {used:0.2f}G/{total:0.2f}G",
     },
     "temperature": {
     	"align": 1,
